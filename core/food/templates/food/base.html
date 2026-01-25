@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}Zay{% endblock %}</title>
+
+    <!-- Favicon и Apple Icon -->
+    <link rel="apple-touch-icon" href="{% static 'assets/img/apple-icon.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}">
+
+    <!-- CSS файлы -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
+
+    <!-- Шрифты -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.min.css' %}">
+</head>
+<body>
+
+    {% block content %}
+
+
+<nav class="d-flex gap-3">
+  {% if user.is_authenticated %}
+    <span>Привет, {{ user.username }}!</span>
+    <a href="{% url 'logout' %}">Выйти</a>
+  {% else %}
+    <a href="{% url 'login' %}">Войти</a>
+    <a href="{% url 'signup' %}">Регистрация</a>
+  {% endif %}
+</nav>
+    <!-- Здесь будет содержимое страниц, которые наследуют base.html -->
+    {% endblock %}
+
+    <!-- JS файлы (по желанию) -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+
+</body>
+</html>
