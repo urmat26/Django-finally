@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Photo Detail</title>
+
+<style>
+body{
+    font-family: Arial;
+    background:#f4f4f4;
+    margin:0;
+    padding:40px;
+}
+
+.card{
+    max-width:600px;
+    margin:auto;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+img{
+    width:100%;
+    border-radius:10px;
+}
+
+.back{
+    display:inline-block;
+    margin-top:15px;
+    text-decoration:none;
+    color:#667eea;
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<h2>{{ photo.title }}</h2>
+
+<img src="{{ photo.image.url }}">
+
+<p>{{ photo.description }}</p>
+
+<p><b>Автор:</b> {{ photo.author }}</p>
+
+<a class="back" href="/">← Back</a>
+
+</div>
+
+</body>
+</html>
